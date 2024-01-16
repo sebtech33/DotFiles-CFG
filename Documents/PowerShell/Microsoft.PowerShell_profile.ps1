@@ -5,10 +5,7 @@ $ModuleFolder ="$HOME\Documents\PowerShell\MyModules"
 ############
 Import-Module "$ModuleFolder\starship.psm1"
 
-###########
-# Aliases #
-###########
-
-# Config
-function Set-GitConfig { & git --git-dir=$HOME/.cfg --work-tree=$HOME $args }
-Set-Alias -Name config -Value Set-GitConfig
+################
+# DotFiles-CFG #
+################
+Import-Module "$ModuleFolder\DotFiles-CFG.psm1"
