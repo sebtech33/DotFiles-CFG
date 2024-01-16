@@ -1,13 +1,14 @@
+$ModuleFolder ="$HOME\Documents\PowerShell\MyModules"
+
 ############
 # Starship #
 ############
-$ENV:STARSHIP_CONFIG = "$HOME\.dotfiles\starship.toml"
-Invoke-Expression (&starship init powershell)
+Import-Module "$ModuleFolder\starship.psm1"
 
 ###########
 # Aliases #
 ###########
 
-# Git
+# Config
 function Set-GitConfig { & git --git-dir=$HOME/.cfg --work-tree=$HOME $args }
 Set-Alias -Name config -Value Set-GitConfig
