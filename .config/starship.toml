@@ -1,96 +1,200 @@
+# All configurations can be found here
+# https://starship.rs/config/
+
+##############
+# Formatting #
+##############
+
 format = """
-[┏](bold red) [$os](bold red) $username @ $directory $docker_context
-[┣❰](bold red) $memory_usage [┃](bold red) $battery [❱](bold red)
+[$os](bold red) $username@$hostname in $directory
+[┣❰](bold red) $fill [❱](bold red)
 [┗❱](bold red) """
 
-right_format = """$all"""
-
-# Inserts a blank line between shell prompts
 add_newline = true
 
-[os]
-format = '$symbol'
-style = "bold white"
-disabled = false
+###########
+# Options #
+###########
 
-[os.symbols]
-Windows = ''
-Macos = ''
-Arch = '󰣇'
-Ubuntu = ''
+#####
+# A #
+#####
 
-[memory_usage]
-threshold = -1
-format = "RAM: [${ram}](bold white)"
-disabled = false
+#####
+# B #
+#####
 
-[battery]
-# full_symbol = "󰁹"
-# charging_symbol = "󱟦"
-# discharging_symbol = "󱟤"
-# unknown_symbol = "󱟨"
-# empty_symbol = "󰂎"
-format = "[$symbol]($style)$percentage"
-disabled = false
+#####
+# C #
+#####
 
-[[battery.display]]
-threshold = 25
-style = "bold red"
-
-[[battery.display]]
-threshold = 50
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 100
-style = "bold green"
-
-[username]
-style_user = 'bold white'
-style_root = 'bold red'
-format = '[$user]($style)'
-disabled = false
-show_always = true
-
-[hostname]
-ssh_only = false
-ssh_symbol = "[󰣀](bold red)"
-trim_at = '.'
-detect_env_vars = []
-format = '$ssh_symbol$hostname'
-style = ""
-disabled = false
-
-# [docker_context]
-# format = "via [$symbol$context]($style)"
-# symbol = "󰡨 "
-# only_with_files = true
-# detect_extensions = []
-# detect_files = ["docker-compose.yml", "docker-compose.yaml", "compose.yml", "Dockerfile"]
-# detect_folders = []
-# style = "bold blue"
-# disabled = false
-
-[docker_context]
-symbol = " "
-format = "via [$symbol$context]($style) "
-style = "blue bold"
-only_with_files = true
-detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
-detect_folders = []
-disabled = false
-
+#####
+# D #
+#####
 [directory]
-truncation_length = 3
-truncate_to_repo = true
+disabled = false
 format = "[$path]($style)[$read_only]($read_only_style)"
 style = "bold red"
-disabled = false
-read_only = "󰈡"
-read_only_style = "red"
-truncation_symbol = ".."
+truncation_length = 4
+truncate_to_repo = true
+read_only = " 󰈡"
+read_only_style = "bold red"
+truncation_symbol = "..."
 before_repo_root_style = ''
 repo_root_style = ''
 repo_root_format = "'[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 home_symbol = "~"
 use_os_path_sep = true
+
+#####
+# E #
+#####
+
+#####
+# F #
+#####
+[fill]
+disabled = false
+style = ""
+symbol = " "
+
+#####
+# G #
+#####
+
+#####
+# H #
+#####
+[hostname]
+disabled = false
+format = '$ssh_symbol$hostname'
+style = ""
+detect_env_vars = []
+ssh_only = false
+ssh_symbol = "[󰣀](bold red)"
+trim_at = '.'
+
+#####
+# I #
+#####
+
+#####
+# J #
+#####
+
+#####
+# K #
+#####
+
+#####
+# L #
+#####
+
+#####
+# M #
+#####
+
+#####
+# N #
+#####
+
+#####
+# O #
+#####
+[os]
+disabled = false
+format = '$symbol'
+style = ''
+
+[os.symbols]
+Alpaquita = '󰯬'
+Alpine = ''
+Amazon = ''
+Android = ''
+Arch = '󰣇'
+Artix = ''
+CentOS = ''
+Debian = '󰣚'
+DragonFly = ''
+Emscripten = '󱨦'
+EndeavourOS = ''
+Fedora = '󰣛'
+FreeBSD = '󰣠'
+Garuda = ''
+Gentoo = '󰣨'
+HardenedBSD = ''
+Illumos = ''
+Linux = ''
+Mabox = '󰬔'
+Macos = ''
+Manjaro = '󱘊'
+Mariner = '󰍶'
+MidnightBSD = '󰄛'
+Mint = '󰣭'
+NetBSD = '󰈿'
+NixOS = '󱄅'
+OpenBSD = ''
+OpenCloudOS = '󰅟'
+openEuler = '󰬌'
+openSUSE = ''
+OracleLinux = ''
+Pop = ''
+Raspbian = ''
+Redhat = '󱄛'
+RedHatEnterprise = ''
+Redox = '󱥸'
+Solus = ''
+SUSE = ''
+Ubuntu = ''
+Unknown = ''
+Windows = ''
+
+#####
+# P #
+#####
+
+#####
+# Q #
+#####
+
+#####
+# R #
+#####
+
+#####
+# S #
+#####
+
+#####
+# T #
+#####
+
+#####
+# U #
+#####
+[username]
+disabled = false
+format = '[$user]($style)'
+style_user = 'bold white'
+style_root = 'bold red'
+show_always = true
+
+#####
+# V #
+#####
+
+#####
+# W #
+#####
+
+#####
+# X #
+#####
+
+#####
+# Y #
+#####
+
+#####
+# Z #
+#####
