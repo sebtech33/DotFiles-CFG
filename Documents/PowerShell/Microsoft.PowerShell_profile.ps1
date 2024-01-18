@@ -1,11 +1,19 @@
-$ModuleFolder ="$HOME\Documents\PowerShell\MyModules"
+$ModuleFolder = "$HOME\Documents\PowerShell\MyModules"
+$ScriptFolder = "$HOME\Documents\PowerShell\MyScripts"
 
-############
-# Starship #
-############
+###########
+# MODULES #
+###########
+
+# Starship
 Import-Module "$ModuleFolder\starship.psm1"
 
-################
-# DotFiles-CFG #
-################
+# DotFiles-CFG
 Import-Module "$ModuleFolder\DotFiles-CFG.psm1"
+
+###########
+# SCRIPTS #
+###########
+
+# Get-GitHubRelease
+Import-Module "$ScriptFolder\Get-GitHubRelease.ps1"
