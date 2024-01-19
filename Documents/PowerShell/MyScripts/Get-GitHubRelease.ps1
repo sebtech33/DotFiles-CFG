@@ -4,7 +4,18 @@ function Show-GitHubReleases() {
         [Parameter(Position = 0, mandatory = $true)]
         [string] $repo
     )
-    $json = curl -s https://api.github.com/repos/$repo/releases/latest
+
+    $GithubJson = Invoke-WebRequest https://api.github.com/repos/$repo/releases/latest | ConvertFrom-Json
+    Write-Host (Get-Content $GithubJson | ConvertFrom-Json).PSObject.Properties
+    
+    #ForEach-Object { $GithubJson[$_.name] = $_.Value }
+
+    #$GithubJson.assets
+
+
+
+
+    #$json = {curl -s https://api.github.com/repos/$repo/releases/latest | ConvertFrom-Json -Depth 3
 }
 
 function Get-GitHubRelease() {
@@ -23,3 +34,5 @@ function Get-GitHubRelease() {
     curl -LO https://github.com/$repo/releases/latest/download/$fileName
 
 }
+
+Show-GitHubReleases

@@ -17,3 +17,16 @@ Import-Module "$ModuleFolder\DotFiles-CFG.psm1"
 
 # Get-GitHubRelease
 Import-Module "$ScriptFolder\Get-GitHubRelease.ps1"
+
+###########
+# SCRIPTS #
+###########
+
+
+
+########
+# CODE #
+########
+# This can add a delay on the startup of the terminal.
+# Disable this to regain startup time if its to slow.
+config pull --quiet
