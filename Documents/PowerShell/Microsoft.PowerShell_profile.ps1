@@ -16,7 +16,8 @@ Import-Module "$ModuleFolder\DotFiles-CFG.psm1"
 ###########
 
 # Get-GitHubRelease
-Import-Module "$ScriptFolder\Get-GitHubRelease.ps1"
+#Import-Module "$ScriptFolder\Get-GitHubRelease.ps1"
+Import-Module "$ScriptFolder\IP-Reload.ps1"
 
 ###########
 # SCRIPTS #
