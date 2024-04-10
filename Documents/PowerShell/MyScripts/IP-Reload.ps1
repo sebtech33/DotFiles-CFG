@@ -17,9 +17,33 @@
   IP-Reload
 #>
 
+function Show-LoadingDots() {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory=$true, Position=0)]
+        $RunningDots,
+        [Parameter(Position=1)]
+        [string] $text
+    )
+    While ( $RunningDots ) {
+        Write-Host "`r$text.  " -NoNewline; Start-Sleep 0.1
+        Write-Host "`r$text.. " -NoNewline; Start-Sleep 0.1
+        Write-Host "`r$text..." -NoNewline; Start-Sleep 0.1
+        Write-Host "`r$text.. " -NoNewline; Start-Sleep 0.1
+    }
+}
+
 function IP-Reload() {
-    Write-host "IP Releasing..." -NoNewLine
-    Start-Process -FilePath "cmd.exe" -ArgumentList "/c 'ipconfig /release'" -Wait -WindowStyle Minimized
+    try {
+        $commandRunning = Start-Process -FilePath "cmd.exe" -ArgumentList "/c 'ipconfig /release'" -Wait -WindowStyle Minimized
+        $text = "IP Releasing"; $commandRunning
+        Write-host $text -NoNewLine
+    }
+    catch {
+        <#Do this if a terminating exception happens#>
+    }
+
+    
     Write-Host "✓"
 
     Write-host "IP Flushing DNS..." -NoNewLine
@@ -30,9 +54,9 @@ function IP-Reload() {
     Start-Process -FilePath "cmd.exe" -ArgumentList "/c 'ipconfig /renew'" -Wait -WindowStyle Minimized
     Write-Host "✓"
 
-    $input = Read-Host "Do you want to list IP configuration? (Y/N)"
+    $userInput = Read-Host "Do you want to list IP configuration? (Y/n)"
 
-    if ( $input -eq "y" -or [string]::IsNullOrWhitespace($input) ) {
+    if ( $userInput -eq "y" -or [string]::IsNullOrWhitespace($userInput) ) {
         #Start-Process -FilePath "cmd.exe" -ArgumentList "/c ipconfig /all" -NoNewWindow -Wait
         $ipconfig = Get-NetIPConfiguration | Select-Object @{n='Adapter'; e='InterfaceAlias'},
 			   		 		   @{n='IP-Address'; e={$_.ipv4address[0]}},
